@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AionWeb | Digital Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#0f172a;
+line-height:1.6;
+}
+
+/* CONTAINER */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+background:white;
+padding:18px 0;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+color:#2563eb;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#334155;
+font-weight:500;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(120deg,#2563eb,#06b6d4);
+color:white;
+padding:120px 0;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+font-size:18px;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 26px;
+background:white;
+color:#2563eb;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:34px;
+}
+
+/* SERVICES */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#2563eb;
+}
+
+/* CLIENTS */
+
+.clients{
+background:white;
+}
+
+.client-logos{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+font-weight:600;
+color:#64748b;
+}
+
+/* PROJECTS */
+
+.project-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.project-card img{
+width:100%;
+}
+
+.project-content{
+padding:20px;
+}
+
+/* ABOUT */
+
+.about{
+background:#f1f5f9;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+}
+
+/* CONTACT */
+
+.contact{
+background:white;
+}
+
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:12px;
+border-radius:6px;
+border:1px solid #cbd5e1;
+}
+
+button{
+padding:14px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:6px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+color:#94a3b8;
+text-align:center;
+padding:35px;
+font-size:14px;
+}
+
+@media(max-width:800px){
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav">
+
+<div class="logo">AionWeb</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Modern Web & Digital Solutions</h1>
+
+<p>
+AionWeb builds modern websites, scalable web applications,
+and digital platforms for startups and growing businesses.
+</p>
+
+<a class="hero-btn" href="#contact">Start Your Project</a>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Services</h2>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Business Websites</h3>
+<p>High-performance websites designed for SEO and conversions.</p>
+</div>
+
+<div class="card">
+<h3>Web Applications</h3>
+<p>Custom dashboards and platforms built with modern technologies.</p>
+</div>
+
+<div class="card">
+<h3>UI / UX Design</h3>
+<p>Beautiful and user-focused interfaces that improve engagement.</p>
+</div>
+
+<div class="card">
+<h3>Deployment & Hosting</h3>
+<p>Secure hosting, cloud infrastructure, and deployment pipelines.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CLIENTS -->
+
+<section class="clients">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Clients</h2>
+</div>
+
+<div class="client-logos">
+
+<div>GymFit Studio</div>
+<div>Prime Salon</div>
+<div>Urban Clinic</div>
+<div>LocalMart</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Recent Projects</h2>
+</div>
+
+<div class="grid">
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250">
+
+<div class="project-content">
+
+<h3>Fitness Studio Website</h3>
+
+<p>Modern responsive website for a local fitness business.</p>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/401/250">
+
+<div class="project-content">
+
+<h3>Salon Booking Website</h3>
+
+<p>Appointment booking platform for a grooming salon.</p>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/402/250">
+
+<div class="project-content">
+
+<h3>Business Portfolio</h3>
+
+<p>Professional website for a consulting company.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div>
+
+<h3>About AionWeb</h3>
+
+<p>
+AionWeb is a modern web development and digital solutions company
+focused on helping businesses build strong digital foundations.
+</p>
+
+</div>
+
+<div>
+
+<h3>Our Vision</h3>
+
+<p>
+We aim to empower startups and businesses with scalable digital products
+built using modern technologies and clean design principles.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Contact Us</h2>
+</div>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 AionWeb — Digital Solutions & Web Development
+
+</footer>
+
+</body>
+</html>
