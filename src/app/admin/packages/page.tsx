@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Plus, Trash2, Edit2, Loader2, Save, X, PlusCircle } from "lucide-react";
+import { Plus, Trash2, Edit2, Loader2, X, PlusCircle } from "lucide-react";
 
 interface Package {
   _id: string;
@@ -18,7 +18,6 @@ export default function AdminPackagesPage() {
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<Package>>({});
-  const [isCreating, setIsCreating] = useState(false);
 
   const fetchPackages = useCallback(async () => {
     setLoading(true);

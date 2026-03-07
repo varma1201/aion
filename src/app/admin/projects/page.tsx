@@ -89,6 +89,7 @@ export default function AdminProjectsPage() {
           {projects.map((proj, i) => (
             <motion.div key={proj._id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="admin-card group flex gap-4">
               <div className="w-24 h-16 rounded-lg bg-gradient-brand flex-shrink-0 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 {proj.image && <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />}
               </div>
               <div className="flex-1 min-w-0">
