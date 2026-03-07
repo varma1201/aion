@@ -7,6 +7,11 @@ import {
   CtaSection,
   PricingSection,
 } from "@/components/HomeSections";
+import { connectDB } from "@/lib/mongodb";
+import { Client } from "@/models/Client";
+import { Package } from "@/models/Package";
+
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Custom Marketing Websites & Web Apps in 24 Hours | AionWeb",
@@ -25,11 +30,9 @@ const fallbackClients = [
 
 async function getClients() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/clients`, { cache: "no-store" });
-    if (!res.ok) return fallbackClients;
-    const data = await res.json();
-    return Array.isArray(data) && data.length ? data : fallbackClients;
+    await connectDB();
+    const data = await Client.find().sort({ createdAt: -1 }).lean();
+    return data.length ? JSON.parse(JSON.stringify(data)) : fallbackClients;
   } catch {
     return fallbackClients;
   }
@@ -37,10 +40,9 @@ async function getClients() {
 
 async function getPackages() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/packages`, { cache: "no-store", next: { revalidate: 0 } });
-    if (!res.ok) return [];
-    return await res.json();
+    await connectDB();
+    const data = await Package.find().sort({ order: 1 }).lean();
+    return JSON.parse(JSON.stringify(data));
   } catch {
     return [];
   }

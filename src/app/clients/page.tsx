@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import SectionTitle from "@/components/SectionTitle";
 import ClientLogo from "@/components/ClientLogo";
 import { Star } from "lucide-react";
+import { connectDB } from "@/lib/mongodb";
+import { Client } from "@/models/Client";
+
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Trusted Web Developers | Client Success Stories",
@@ -19,11 +23,9 @@ const defaultClients = [
 
 async function getClients() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/clients`, { cache: "no-store" });
-    if (!res.ok) return defaultClients;
-    const data = await res.json();
-    return data.length ? data : defaultClients;
+    await connectDB();
+    const data = await Client.find().sort({ createdAt: -1 }).lean();
+    return data.length ? JSON.parse(JSON.stringify(data)) : defaultClients;
   } catch {
     return defaultClients;
   }
