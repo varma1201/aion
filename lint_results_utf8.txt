@@ -1,0 +1,41 @@
+﻿node.exe : 
+At C:\Program 
+Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified  
+  : (:String) [], Rem   
+ oteException
+    + FullyQualifiedErr 
+   orId : NativeComman  
+  dError
+ 
+./src/app/api/services/r
+oute.ts
+12:19  Error: 
+Unexpected any. Specify 
+a different type.  @type
+script-eslint/no-explici
+t-any
+27:19  Error: 
+Unexpected any. Specify 
+a different type.  @type
+script-eslint/no-explici
+t-any
+
+./src/lib/auth.ts
+19:12  Error: 'error' 
+is defined but never 
+used.  @typescript-eslin
+t/no-unused-vars
+
+info  - Need to disable 
+some ESLint rules? 
+Learn more here: https:/
+/nextjs.org/docs/basic-f
+eatures/eslint#disabling
+-rules

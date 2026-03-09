@@ -19,11 +19,23 @@ export default function AdminContactsPage() {
   const [filter, setFilter] = useState<"all" | "unread">("all");
 
   const fetchContacts = useCallback(async () => {
-    setLoading(true);
-    const res = await fetch("/api/contacts");
-    const data = await res.json();
-    setContacts(Array.isArray(data) ? data : []);
-    setLoading(false);
+    try {
+      const res = await fetch("/api/contacts", { cache: "no-store" });
+      if (!res.ok) {
+        if (res.status === 401 || res.status === 403) {
+           window.location.href = '/admin'; // Native redirect if auth fails completely
+           return;
+        }
+        throw new Error('Failed to fetch');
+      }
+      const data = await res.json();
+      setContacts(Array.isArray(data) ? data : []);
+    } catch (e) {
+      console.error("Contacts fetch error:", e);
+      setContacts([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => { fetchContacts(); }, [fetchContacts]);

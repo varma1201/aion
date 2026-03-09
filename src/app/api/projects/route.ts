@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { verifyAdminAPI } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import { Project } from "@/models/Project";
@@ -13,6 +15,9 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const authError = verifyAdminAPI(req);
+  if (authError) return authError;
+
   try {
     await connectDB();
     const body = await req.json();

@@ -1,9 +1,15 @@
+import { verifyAdminAPI } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import { Contact } from "@/models/Contact";
 import nodemailer from "nodemailer";
 
-export async function GET() {
+export const dynamic = "force-dynamic";
+
+export async function GET(req: NextRequest) {
+  const authError = verifyAdminAPI(req);
+  if (authError) return authError;
+
   try {
     await connectDB();
     const contacts = await Contact.find().sort({ createdAt: -1 });

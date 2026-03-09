@@ -13,14 +13,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
-    const token = jwt.sign({ username, role: "admin" }, JWT_SECRET, { expiresIn: "24h" });
+    const token = jwt.sign({ username, role: "admin" }, JWT_SECRET, { expiresIn: "1h" });
 
     const response = NextResponse.json({ message: "Login successful", token });
     response.cookies.set("admin_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 60 * 60 * 24,
+      maxAge: 3600, // 1 hour
       path: "/",
     });
 

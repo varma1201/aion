@@ -1,8 +1,12 @@
+export const dynamic = "force-dynamic";
+import { verifyAdminAPI } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import { Package } from "@/models/Package";
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+  const authError = verifyAdminAPI(req);
+  if (authError) return authError;
   try {
     await connectDB();
     const body = await req.json();
@@ -20,6 +24,8 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+  const authError = verifyAdminAPI(req);
+  if (authError) return authError;
   try {
     await connectDB();
     const deletedPackage = await Package.findByIdAndDelete(params.id);
