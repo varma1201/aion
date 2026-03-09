@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://aionweb.io";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://aionweb.in";
 const date = new Date().toISOString();
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
