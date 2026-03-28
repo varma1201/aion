@@ -90,9 +90,6 @@ export default function AdminLoginPage() {
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
-          <p className="text-center text-xs text-slate-500 mt-6">
-            Default: admin / aionweb2026 (change in .env.local)
-          </p>
         </div>
       </motion.div>
     </div>
