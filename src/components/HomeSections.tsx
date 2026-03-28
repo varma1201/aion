@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight, Clock, CheckCircle, Star, Zap,
   Globe, Smartphone, ShoppingCart, BarChart3,
